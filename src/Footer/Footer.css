@@ -1,0 +1,73 @@
+/* Footer.css */
+
+.footer {
+  background: #0d3b66; /* deep blue */
+  color: #f5faff; /* light text */
+  font-family: "Poppins", sans-serif;
+}
+
+.footer h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer p {
+  font-size: 0.95rem;
+  color: #dbeafe; /* light blue text */
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.footer .footer-link {
+  display: block;
+  color: #dbeafe;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer .footer-link:hover {
+  color: #00bfff; /* bright blue accent */
+  transform: translateX(3px);
+}
+
+.footer .social-links {
+  margin-top: 10px;
+}
+
+.footer .footer-social {
+  color: #dbeafe;
+  margin: 0 5px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer .footer-social:hover {
+  color: #00bfff;
+}
+
+.footer hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 20px 0;
+}
+
+.footer .text-center {
+  font-size: 0.9rem;
+  color: #cbd5e1; /* subtle gray-blue */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer .row > div {
+    margin-bottom: 20px;
+  }
+}

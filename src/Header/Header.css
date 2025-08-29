@@ -1,0 +1,155 @@
+/* =========================
+   1. Header Container
+========================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #f5faff; /* HeroSection theme */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* =========================
+   2. Logo
+========================= */
+.logo {
+  cursor: pointer;
+}
+
+.logo img {
+  height: 60px;
+  transition: transform 0.2s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   3. Navigation Links
+========================= */
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ✅ li aur Link dono ke liye styling */
+.nav-links ul li,
+.nav-links ul li a {
+  text-decoration: none;
+  color: #0d3b66; /* deep blue */
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.nav-links ul li:hover,
+.nav-links ul li a:hover {
+  color: #00bfff; /* bright accent */
+  transform: translateY(-2px);
+}
+
+/* =========================
+   4. CTA Button
+========================= */
+.header-cta .btn-enquire {
+  background: linear-gradient(90deg, #00bfff, #1e90ff);
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-cta .btn-enquire:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 191, 255, 0.4);
+}
+
+/* =========================
+   5. Hamburger Menu (Mobile)
+========================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #0d3b66;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* =========================
+   6. Mobile Menu Active State
+========================= */
+.nav-links.active {
+  position: absolute;
+  top: 75px;
+  right: 0;
+  background: #f5faff;
+  width: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-links.active ul {
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* =========================
+   7. Responsive Styling
+========================= */
+@media (max-width: 992px) {
+  .nav-links {
+    display: none; /* hide normal nav */
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .header-cta {
+    display: none;  
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  .nav-links.active {
+    width: 180px;
+    top: 65px;
+    right: 10px;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+}

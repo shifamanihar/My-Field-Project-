@@ -1,0 +1,110 @@
+/* src/HeroSection/HeroSection.css */
+
+.hero-chat-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 80vh;
+  padding: 0 50px;
+  background: #f5faff; /* soft white/blue background for friendly look */
+  color: #1a1a1a;
+  gap: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-chat-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-chat-image img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.hero-chat-content {
+  flex: 1;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.hero-chat-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #0d3b66; /* deep blue accent */
+}
+
+.hero-chat-content span {
+  color: #00bfff; /* bright blue for highlighting "RJ College" */
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+.start-chat-btn {
+  background: linear-gradient(90deg, #00bfff, #1e90ff); /* bright gradient matching theme */
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-chat-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 191, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-chat-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-chat-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-chat-image img {
+    max-width: 300px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-chat-content h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .start-chat-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
