@@ -1,193 +1,22 @@
-/* ✅ Sirf ChatPage ke liye reset */
-/* Sirf ChatPage ke liye reset */
-.chat-page {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden; 
-  background: #ffffff;
+/* Botpress ko Full Screen mein dikhane ke liye CSS */
+
+/* Ensure basic app structure allows full height */
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-/* wrapper ko sirf full width do, height repeat ki zarurat nahi */
-.chat-wrapper {
-  flex: 1;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  width: 100%;
-  height: 100%;   
+/* Yahi woh element hai jismein Botpress load hoga */
+.full-chat-embed {
+    /* Puri screen ko cover karega */
+    height: 100vh; 
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    /* Botpress ko load hone ka pura space do */
+    display: block; 
 }
 
-/* Chat container full stretch */
-.chat-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  font-family: "Poppins", sans-serif;
-  background: #ffffff;
-  overflow: hidden; /* isse andar ka scroll sahi kaam karega */
-}
-
-/* Header */
-.chat-header {
-  background: linear-gradient(90deg, #00bfff, #1e90ff);
-  padding: 14px 18px;
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  box-shadow: 0 2px 6px rgba(0, 191, 255, 0.3);
-}
-
-.chat-header .header-icon {
-  font-size: 1.3rem;
-}
-
-/* Body */
-.chat-body {
-  flex: 1;
-  overflow-y: auto;
-  /* padding: 14px; */
-  background: #f5faff;
-  display: flex;
-  flex-direction: column;
-  /* gap: 12px; */
-}
-
-.chat-body::-webkit-scrollbar {
-  width: 6px;
-}
-.chat-body::-webkit-scrollbar-thumb {
-  background: #cbd5e0;
-  border-radius: 3px;
-}
-
-/* Message wrapper */
-.message-wrapper {
-  display: flex;
-  gap: 8px;
-  animation: fadeIn 0.25s ease-in;
-}
-
-.message-wrapper.user {
-  justify-content: flex-end;
-}
-
-.message-wrapper.assistant {
-  justify-content: flex-start;
-}
-
-.avatar {
-  font-size: 1.5rem;
-  color: #1e90ff;
-}
-
-/* Messages */
-.message {
-  max-width: 70%;
-  padding: 10px 14px;
-  border-radius: 18px;
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.message.user {
-  background: linear-gradient(90deg, #00bfff, #1e90ff);
-  color: #fff;
-  border-bottom-right-radius: 6px;
-}
-
-.message.assistant {
-  background: #e9f3ff;
-  color: #0d3b66;
-  border-bottom-left-radius: 6px;
-}
-
-/* Time */
-.msg-time {
-  font-size: 0.7rem;
-  opacity: 0.7;
-  margin-top: 4px;
-  text-align: right;
-  display: block;
-}
-
-/* Typing */
-.message.typing {
-  background: #e9f3ff;
-  display: flex;
-  gap: 4px;
-  padding: 10px;
-  border-radius: 18px;
-}
-.message.typing span {
-  width: 6px;
-  height: 6px;
-  background: #1e90ff;
-  border-radius: 50%;
-  animation: blink 1.4s infinite;
-}
-.message.typing span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.message.typing span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-/* Footer */
-.chat-footer {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-top: 1px solid #e2e8f0;
-  background: #fff;
-  gap: 10px;
-}
-
-.chat-footer input {
-  flex: 1;
-  padding: 10px 14px;
-  border: 1px solid #cbd5e0;
-  border-radius: 20px;
-  outline: none;
-}
-.chat-footer input:focus {
-  border-color: #1e90ff;
-  box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.15);
-}
-
-.chat-footer button {
-  background: linear-gradient(90deg, #00bfff, #1e90ff);
-  color: #fff;
-  border: none;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.chat-footer button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 191, 255, 0.4);
-}
-
-/* Animations */
-@keyframes blink {
-  0%, 80%, 100% { opacity: 0.2; }
-  40% { opacity: 1; }
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .chat-container {
-    border-radius: 0;
-  }
-}
+/* Aapka puraana .chat-page, .chat-wrapper, .chat-container CSS ab zaruri nahi hai
+   kyunki hum Botpress ke UI ko use kar rahe hain. */

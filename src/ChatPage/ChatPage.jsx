@@ -1,137 +1,50 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { FaPaperPlane, FaUserCircle, FaRobot, FaComments } from "react-icons/fa";
-import "./ChatPage.css";
+import React, { useEffect } from "react";
+// CSS import rahne dein agar aapko background styling karni hai
+import "./ChatPage.css"; 
 
 export default function ChatPage() {
-  const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [messages, setMessages] = useState([
-    {
-      id: "m0",
-      role: "assistant",
-      content:
-        "👋 Hi! I can answer your queries using RJ College data. Ask me about admissions, fees, timetable, or exams.",
-      time: new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-    },
-  ]);
+    // 1. Apni unique scripts ki URLS
+    const INJECT_URL = "https://cdn.botpress.cloud/webchat/v3.3/inject.js";
+    
+    // 2. Yahan humne naya .js file URL dala hai, kyunki isme 'targetSelector' setting hogi
+    // NOTE: Aapki actual config URL use karein, jo .js mein end hoti hai
+    const CONFIG_URL = "https://files.bpcontent.cloud/2025/10/03/14/20251003141327-9WU7CRS6.js"; 
+    
+    // 3. Target Element ID
+    const TARGET_ELEMENT_ID = "botpress-webchat-container";
 
-  const listRef = useRef(null);
-  const canSend = useMemo(
-    () => input.trim().length > 0 && !loading,
-    [input, loading]
-  );
+    useEffect(() => {
+        if (window.botpressWebChat) {
+            console.log("Botpress WebChat is already loaded.");
+            return;
+        }
 
-  useEffect(() => {
-    if (listRef.current) {
-      listRef.current.scrollTop = listRef.current.scrollHeight;
-    }
-  }, [messages, loading]);
+        const loadScripts = () => {
+            const injectScript = document.createElement('script');
+            injectScript.src = INJECT_URL;
+            injectScript.defer = true;
+            document.body.appendChild(injectScript);
+            
+            const configScript = document.createElement('script');
+            configScript.src = CONFIG_URL;
+            configScript.defer = true;
+            document.body.appendChild(configScript);
+        };
 
-  async function sendMessage(text) {
-    const trimmed = text.trim();
-    if (!trimmed) return;
+        loadScripts();
+        
+    }, []); 
 
-    setError("");
-    setLoading(true);
-
-    const userMsg = {
-      id: crypto.randomUUID(),
-      role: "user",
-      content: trimmed,
-      time: new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-    };
-    setMessages((m) => [...m, userMsg]);
-    setInput("");
-
-    try {
-      const botReply = {
-        id: crypto.randomUUID(),
-        role: "assistant",
-        content:
-          "🤖 (Mock reply) Soon I’ll be connected to backend with RJ College data.",
-        time: new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
-      };
-      setTimeout(() => {
-        setMessages((m) => [...m, botReply]);
-        setLoading(false);
-      }, 1200);
-    } catch (e) {
-      setError("⚠️ Error: Backend not reachable.");
-      setLoading(false);
-    }
-  }
-
-  function handleKeyDown(e) {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      if (canSend) sendMessage(input);
-    }
-  }
-
-  return (
-    <div className="chat-page">
-      <div className="chat-wrapper">
-        <div className="chat-container">
-          {/* Header */}
-          <div className="chat-header">
-            <FaComments className="header-icon" />
-            <h3>RJ College Helpdesk</h3>
-          </div>
-
-          {/* Messages */}
-          <div ref={listRef} className="chat-body">
-            {messages.map((m) => (
-              <div key={m.id} className={`message-wrapper ${m.role}`}>
-                <div className="avatar">
-                  {m.role === "user" ? <FaUserCircle /> : <FaRobot />}
-                </div>
-                <div className={`message ${m.role}`}>
-                  <p>{m.content}</p>
-                  <span className="msg-time">{m.time}</span>
-                </div>
-              </div>
-            ))}
-
-            {loading && (
-              <div className="message-wrapper assistant">
-                <div className="avatar">
-                  <FaRobot />
-                </div>
-                <div className="message typing">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Footer */}
-          <div className="chat-footer">
-            {error && <div className="chat-error">{error}</div>}
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Type your question..."
-            />
-            <button onClick={() => sendMessage(input)} disabled={!canSend}>
-              <FaPaperPlane />
-            </button>
-          </div>
+    return (
+        // Aapka puraana UI (header, loading text) hata dein
+        // Sirf yeh main container rakhein
+        <div 
+            id={TARGET_ELEMENT_ID} 
+            className="full-chat-embed"
+            // CSS se isko puri screen ka size denge
+        >
+            {/* Jab Botpress load hoga, toh woh is div ke andar aayega */}
+            <p>Loading Chatbot...</p> 
         </div>
-      </div>
-    </div>
-  );
+    );
 }

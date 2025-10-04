@@ -1,110 +1,130 @@
-/* src/HeroSection/HeroSection.css */
+/* --- Global Reset & Typography --- */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
 
+/* --- 1. Main Container (Hero Section) --- */
 .hero-chat-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  min-height: 80vh;
-  padding: 0 50px;
-  background: #f5faff; /* soft white/blue background for friendly look */
-  color: #1a1a1a;
-  gap: 40px;
-  font-family: 'Poppins', sans-serif;
+    display: flex;
+    /* Content center karne ke liye */
+    align-items: center; 
+    justify-content: space-between;
+    
+    /* Poori screen height ka 80% lega */
+    min-height: 80vh; 
+    padding: 40px 8%;
+    background-color: #f8faff; /* Light background */
+    
+    /* Animation ke liye thoda space */
+    overflow: hidden; 
 }
 
-.hero-chat-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-chat-image img {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
+/* --- 2. Left Content Area --- */
 .hero-chat-content {
-  flex: 1;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
+    /* Desktop par 50% width lega */
+    max-width: 50%; 
+    padding-right: 40px;
+    z-index: 10; /* Image ke upar rahe */
 }
 
 .hero-chat-content h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  font-weight: 700;
-  color: #0d3b66; /* deep blue accent */
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    font-weight: 800;
 }
 
 .hero-chat-content span {
-  color: #00bfff; /* bright blue for highlighting "RJ College" */
+    /* College name ko highlight karna */
+    color:   #1e90ff; 
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  line-height: 1.5;
-  color: #1a1a1a;
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 30px;
+    font-weight: 400;
 }
 
+/* --- 3. Start Chat Button --- */
 .start-chat-btn {
-  background: linear-gradient(90deg, #00bfff, #1e90ff); /* bright gradient matching theme */
-  color: white;
-  border: none;
-  padding: 15px 25px;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    background-color:#1e90ff; /* Primary button color */
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(92, 107, 192, 0.4);
 }
 
 .start-chat-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 191, 255, 0.4);
+    background-color:#6664c2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(92, 107, 192, 0.6);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .hero-chat-section {
-    flex-direction: column-reverse;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
-  .hero-chat-content h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-chat-image img {
-    max-width: 300px;
-    margin-bottom: 30px;
-  }
+/* --- 4. Right Image Area --- */
+.hero-chat-image {
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (max-width: 576px) {
-  .hero-chat-content h1 {
-    font-size: 2rem;
-  }
+.chat-illustration {
+    width: 100%;
+    height: auto;
+    /* Soft animation */
+    animation: float 6s ease-in-out infinite; 
+}
 
-  .subtitle {
-    font-size: 1rem;
-  }
+/* Keyframes for floating animation */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
 
-  .start-chat-btn {
-    padding: 12px 20px;
-    font-size: 1rem;
-  }
+/* --- 5. Responsiveness (Mobile & Tablet) --- */
+@media (max-width: 1024px) {
+    .hero-chat-section {
+        /* Tablet par vertical layout */
+        flex-direction: column; 
+        min-height: auto;
+        padding-top: 60px;
+    }
+
+    .hero-chat-content, .hero-chat-image {
+        max-width: 90%;
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .hero-chat-content {
+        order: 2; /* Content image ke neeche aayega */
+        margin-top: 40px;
+    }
+    
+    .hero-chat-image {
+        order: 1; /* Image upar jayegi */
+        margin-bottom: 20px;
+    }
+
+    .hero-chat-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .start-chat-btn {
+        margin: 0 auto; /* Button center karne ke liye */
+    }
 }

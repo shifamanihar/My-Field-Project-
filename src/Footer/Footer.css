@@ -1,73 +1,113 @@
 /* Footer.css */
 
 .footer {
-  background: #0d3b66; /* deep blue */
-  color: #f5faff; /* light text */
-  font-family: "Poppins", sans-serif;
+    padding: 40px 0;
+    background: #0d3b66; /* deep blue */
+    color: #f5faff; /* light text */
+    font-family: "Poppins", sans-serif;
 }
 
 .footer h5 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ffffff;
 }
 
 .footer p {
-  font-size: 0.95rem;
-  color: #dbeafe; /* light blue text */
-  margin-bottom: 8px;
-  line-height: 1.6;
+    font-size: 0.95rem;
+    color: #dbeafe; /* light blue text */
+    margin-bottom: 8px;
+    line-height: 1.6;
 }
 
+/* --- QUICK LINKS STYLES (Email link) --- */
 .footer .footer-link {
-  display: block;
-  color: #dbeafe;
-  font-size: 0.95rem;
-  margin-bottom: 8px;
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+    display: block;
+    color: #dbeafe;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.footer .footer-link:hover {
-  color: #00bfff; /* bright blue accent */
-  transform: translateX(3px);
+/* Style for <button> links (Home, About, etc.) */
+.footer .footer-link-btn {
+    /* Reset Button Defaults */
+    background: none;
+    border: none;
+    padding: 0;
+    
+    /* Inherit Link Styles */
+    display: block;
+    color: #dbeafe;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    text-align: left; 
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
+
+.footer .footer-link:hover,
+.footer .footer-link-btn:hover {
+    color: #00bfff; /* bright blue accent */
+    transform: translateX(3px);
+}
+
+/* --- SOCIAL LINK STYLES (FIXED) --- */
 
 .footer .social-links {
-  margin-top: 10px;
+    /* Container for links */
+    display: flex; 
+    gap: 10px; /* Reduced gap since you are using '|' separator */
+    margin-top: 15px;
+    flex-wrap: wrap;
 }
 
+/* Styling for the plain social links (a.footer-social) */
 .footer .footer-social {
-  color: #dbeafe;
-  margin: 0 5px;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: color 0.2s ease;
+    color: #dbeafe; /* Normal color: Matches Quick Links */
+    font-size: 0.95rem;
+    text-decoration: none;
+    /* Transition must match Quick Links */
+    transition: color 0.2s ease, transform 0.2s ease; 
 }
 
 .footer .footer-social:hover {
-  color: #00bfff;
+    color: #00bfff; /* Hover color: Matches Quick Links */
+    /* Hover effect: Matches Quick Links */
+    transform: translateX(3px);
+    /* Remove underline if browser defaults it */
+    text-decoration: none; 
 }
 
+
+/* --- MISC STYLES --- */
+
 .footer hr {
-  border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin: 20px 0;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
 }
 
 .footer .text-center {
-  font-size: 0.9rem;
-  color: #cbd5e1; /* subtle gray-blue */
+    font-size: 0.9rem;
+    color: #cbd5e1; /* subtle gray-blue */
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .footer {
-    text-align: center;
-  }
+    .footer {
+        text-align: center;
+    }
 
-  .footer .row > div {
-    margin-bottom: 20px;
-  }
+    .footer .row > div {
+        margin-bottom: 20px;
+    }
+
+    /* Center social links on mobile */
+    .footer .social-links {
+        justify-content: center;
+    }
 }
