@@ -8,13 +8,10 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   const handleStartChat = () => {
-    // 🛑 YAHAN PAR BADLAV KIYA GAYA HAI 🛑
-    const BOTPRESS_SHARE_URL = "https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/03/14/20251003141327-Q9TBGO8U.json";
-    
-    // navigate("/chat"); // Original line removed/commented out
-    
-    // Naya tab open karega aur Botpress ka shareable link load karega
-    window.open(BOTPRESS_SHARE_URL, '_blank');
+    // 🛑 Botpress Link Fix: Opens shareable URL in a new tab 🛑
+    const BOTPRESS_SHARE_URL = "https://cdn.botpress.cloud/webchat/v3.3/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/03/14/20251003141327-Q9TBGO8U.json";
+    
+    window.open(BOTPRESS_SHARE_URL, '_blank');
   };
 
   return (
