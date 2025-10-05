@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./CoursesPreview.css";
 
 const previewCourses = [
-  { name: "B.A. (Arts)", duration: "3 Years", fees: "₹21,900" },
-  { name: "B.Com (General)", duration: "3 Years", fees: "₹57,645" },
-  { name: "B.Sc (Computer Science)", duration: "4.43 Years", fees: "₹69,580" },
+  { name: "B.A. (Arts)", duration: "3 Years" },
+  { name: "B.Com (General)", duration: "3 Years" },
+  { name: "B.Sc (Computer Science)", duration: "4 Years" },
 ];
 
 const CoursesPreview = () => {
@@ -23,7 +23,6 @@ const CoursesPreview = () => {
           <div key={index} className="preview-card">
             <h3>{course.name}</h3>
             <p><strong>Duration:</strong> {course.duration}</p>
-            <p><strong>Fees:</strong> {course.fees}</p>
           </div>
         ))}
       </div>
