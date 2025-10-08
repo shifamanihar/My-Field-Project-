@@ -237,11 +237,12 @@ Click Deploy Site
 Owner: Shifa Manihar
 Team: A group of 3 passionate students building a chatbot for the college website.
 
-| **Name**            | **GitHub Profile**                                    | **Responsibilities**               |
-| ------------------- | ----------------------------------------------------- | ---------------------------------- |
-| **Shifa Manihar**   | [@shifamanihar](https://github.com/shifamanihar)      | Frontend Development, UI/UX Design |
-| **Vikas Prajapati** | [@vikasprajapati](https://github.com/vikasprajapati3) | Component Logic, Layout Design     |
-| **Yogesh Chavan**   | [@yogeshchavan](https://github.com/yogeshchavan)      | Routing, Project Setup             |
+| **Name**            | **GitHub Profile**                                    | **Responsibilities**                                   |
+| ------------------- | ----------------------------------------------------- | ------------------------------------------------------ |
+| **Shifa Manihar**   | [@shifamanihar](https://github.com/shifamanihar)      | Frontend Development, UI/UX Design, Research           |
+| **Vikas Prajapati** | [@vikasprajapati](https://github.com/vikasprajapati3) | Frontend Development, Deployment, Layout Design        |
+| **Yogesh Chavan**   | [@yogeshchavan](https://github.com/yogeshchavan)      | Component Logic, Frontend Development, Data Collection |
+
 
 ## Support
 
@@ -262,4 +263,4 @@ Email: [vikasrjc7@gmail.com](mailto:vikasrjc7@gmail.com)
 GitHub: [github.com/vikasprajapati3](https://github.com/vikasprajapati3)
 LinkedIn: [linkedin.com/in/vikasprajapati3](https://linkedin.com/in/vikasprajapati3)
  
-I am passionate about building user-centric learning tools, mentoring students, and contributing to the open-source ecosystem.
+
